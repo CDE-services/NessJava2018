@@ -1,6 +1,19 @@
+import org.apache.derby.jdbc.ClientDriver;
+import shapes.Line;
+import shapes.Rectangle;
 
 public class HelloWorld {
 	public static void main(String[] args) {
+		Line l = new Line();
+		Rectangle r = new Rectangle(4, 4);
+		
+		System.out.printf("%10s: %d-%s", 
+				"jahodka", 45, "malinka");
+		
+		System.out.println(r);
+		
+		ClientDriver cd;
+		
 		int a = 5;
 		System.out.println("Cislo je parne: " + (a % 2 == 0 ? "ano" : "nie"));
 

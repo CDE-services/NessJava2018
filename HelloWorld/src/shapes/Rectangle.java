@@ -1,5 +1,7 @@
 package shapes;
 
+import java.util.Formatter;
+
 public class Rectangle extends Shape {
 	private int width;
 	private int height;
@@ -29,6 +31,15 @@ public class Rectangle extends Shape {
 	
 	@Override
 	public String toString() {
-		return "Rectangle";
+		Formatter sb = new Formatter();
+		
+		for (int h = 0; h < height; h++) {
+			for (int w = 0; w < width; w++) {
+				sb.format("%2s", super.color);
+			}
+			sb.format("\n");
+		}
+		
+		return sb.toString();
 	}
 }

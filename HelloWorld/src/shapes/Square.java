@@ -1,31 +1,20 @@
 package shapes;
 
-public class Square extends Shape {
-	private int size;
+public class Square extends Rectangle {
+	public Square() {
+		super();
+	}
 	
 	public Square(int size) {
-		this.size = size;
+		super(size, size);
 	}
 	
 	public int getSize() {
-		return size;
+		return super.getHeight();
 	}
 	
 	public void setSize(int size) {
-		this.size = size;
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		
-        for(int i = 0; i < size; i++) {
-            for(int j = 0; j < size; j++) {
-                sb.append("*");
-            }
-            sb.append("\n");
-        }
-        
-        return sb.toString();
+		super.setHeight(size);
+		super.setWidth(size);
 	}
 }

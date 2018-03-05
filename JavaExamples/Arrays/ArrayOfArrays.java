@@ -1,22 +1,25 @@
 public class ArrayOfArrays {
     public static void main(String[] args) {
-        //int[][] aMatrix = new int[4][];
-        int[][] aMatrix = new int[4][5];
+        int[][] aMatrix = new int[4][];
+//        int[][] aMatrix = new int[4][5];
 
+        
         //populate matrix
-        for (int i = 0; i < aMatrix.length; i++) {
-            //aMatrix[i] = new int[5];	//create sub-array
-            for (int j = 0; j < aMatrix[i].length; j++) {
-                aMatrix[i][j] = i + j;
+        for (int r = 0; r < aMatrix.length; r++) {
+            aMatrix[r] = new int[r+2];	//create sub-array
+            for (int c = 0; c < aMatrix[r].length; c++) {
+                aMatrix[r][c] = r + c + 1;
             }
         }
 
         //print matrix
-        for (int i = 0; i < aMatrix.length; i++) {
-            for (int j = 0; j < aMatrix[i].length; j++) {
-                System.out.print(aMatrix[i][j] + " ");
+        for (int r = 0; r < aMatrix.length; r++) {
+            for (int c = 0; c < aMatrix[r].length; c++) {
+                System.out.print(aMatrix[r][c] + " ");
             }
             System.out.println();
         }
+        
+        aMatrix[-1][2] = 5;
     }
 }

@@ -1,7 +1,6 @@
 public class EnhancedForDemo {
     public static void main(String[] args) {
-        int[] primes = { 2, 3, 5, 7, 11,
-        	13, 17, 19, 23, 29 };
+        char[] primes = { 'a', 'b', 'c' };
 
         // Print the primes out without for/in loop
         for (int i = 0; i < primes.length ; i++) {
@@ -9,7 +8,7 @@ public class EnhancedForDemo {
         }
 
         // Print the primes out using a for/in loop
-        for (int n : primes) {
+        for (char n : primes) {
             System.out.println(n);
         }
     }
