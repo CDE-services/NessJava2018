@@ -2,6 +2,7 @@ package minesweeper.core;
 
 import java.util.Formatter;
 import java.util.Random;
+//import minesweeper.core.Tile.State;
 
 /**
  * Field represents playing field and game logic.
@@ -31,6 +32,8 @@ public class Field {
      * Game state.
      */
     private GameState state = GameState.PLAYING;
+    
+    private long startingTime;
 
     /**
      * Constructor.
@@ -47,6 +50,8 @@ public class Field {
 
         //generate the field content
         generate();
+        
+        startingTime = System.currentTimeMillis();
     }
 
     /**
@@ -59,6 +64,12 @@ public class Field {
         Tile tile = tiles[row][column];
         if (tile.getState() == Tile.State.CLOSED) {
             tile.setState(Tile.State.OPEN);
+            
+            if(tile instanceof Clue
+    			&& ((Clue)tile).getValue() == 0) {
+            	openAdjacentTiles(row, column);
+            }
+            
             if (tile instanceof Mine) {
                 state = GameState.FAILED;
                 return;
@@ -78,7 +89,12 @@ public class Field {
      * @param column column number
      */
     public void markTile(int row, int column) {
-        throw new UnsupportedOperationException("Method markTile not yet implemented");
+    	Tile t = tiles[row][column];
+        if(t.getState() == Tile.State.MARKED) {
+        	t.setState(Tile.State.CLOSED);
+        } else if (t.getState() == Tile.State.CLOSED) {
+        	t.setState(Tile.State.MARKED);
+        }
     }
 
     /**
@@ -111,7 +127,20 @@ public class Field {
      * @return true if game is solved, false otherwise
      */
     private boolean isSolved() {
-        throw new UnsupportedOperationException("Method isSolved not yet implemented");
+        return rowCount * columnCount 
+        		- numberOf(Tile.State.OPEN) == mineCount;
+    }
+    
+    private int numberOf(Tile.State state) {
+    	int count = 0;
+    	for (int r = 0; r < rowCount; r++) {
+			for (int c = 0; c < columnCount; c++) {
+				if(tiles[r][c].getState() == state) {
+					count++;
+				}
+			}
+		}
+    	return count;
     }
 
     /**
@@ -132,6 +161,23 @@ public class Field {
                         if (tiles[actRow][actColumn] instanceof Mine) {
                             count++;
                         }
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+    
+    private int openAdjacentTiles(int row, int column) {
+        int count = 0;
+        for (int rowOffset = -1; rowOffset <= 1; rowOffset++) {
+            int actRow = row + rowOffset;
+            if (actRow >= 0 && actRow < rowCount) {
+                for (int columnOffset = -1; columnOffset <= 1; columnOffset++) {
+                    int actColumn = column + columnOffset;
+                    if (actColumn >= 0 && actColumn < columnCount) {
+                        openTile(actRow, actColumn);
                     }
                 }
             }
@@ -160,18 +206,17 @@ public class Field {
 		return mineCount;
 	}
 	
+	public int getPlayingSeconds() {
+		return (int) ((System.currentTimeMillis() - startingTime)/1000);
+	}
+	
 	@Override
 	public String toString() {
 		Formatter f = new Formatter();
 		
 		for (int r = 0; r < rowCount; r++) {
 			for (int c = 0; c < columnCount; c++) {
-				Tile t = tiles[r][c];
-				if(t instanceof Mine) {
-					f.format("%3s", "*");
-				} else {
-					f.format("%3s", ((Clue)t).getValue());
-				}
+				f.format("%3s", tiles[r][c]);
 			}
 			f.format("%n");
 		}

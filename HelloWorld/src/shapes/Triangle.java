@@ -3,6 +3,11 @@ package shapes;
 public class Triangle extends Shape {
 	private int size;
 	
+	public Triangle(int x, int y, int size) {
+		super(x, y);
+		this.size = size;
+	}
+
 	public int getSize() {
 		return size;
 	}

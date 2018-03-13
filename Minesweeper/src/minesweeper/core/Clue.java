@@ -12,10 +12,18 @@ public class Clue  extends Tile {
      * @param value  value of the clue
      */
     public Clue(int value) {
-        this.value = value;
+    	super();
+    	this.value = value;
     }
 
 	public int getValue() {
 		return value;
+	}
+	
+	@Override
+	public String toString() {
+		return this.getState() == Tile.State.OPEN ?
+				String.valueOf(this.value)
+				: super.toString();
 	}
 }

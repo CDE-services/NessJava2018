@@ -33,4 +33,13 @@ public abstract class Tile {
     void setState(State state) {
         this.state = state;
     }
+    
+    @Override
+    public String toString() {
+    	switch(this.state) {
+	    	case CLOSED: return "-";
+	    	case MARKED: return "M";
+	    	default: return "a";
+    	}
+    }
 }

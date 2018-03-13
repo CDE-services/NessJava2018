@@ -14,6 +14,12 @@ public class HelloWorld {
 		
 		ClientDriver cd;
 		
+//		Math m = new Math();
+//		m.abs(-14.6);
+		Math.abs(-14.6);
+//		Rectangle.getWidth();
+		r.getWidth();
+		
 		int a = 5;
 		System.out.println("Cislo je parne: " + (a % 2 == 0 ? "ano" : "nie"));
 

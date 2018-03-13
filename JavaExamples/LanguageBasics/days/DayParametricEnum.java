@@ -14,7 +14,10 @@ public enum DayParametricEnum { //po preklade vznikne class CopyOfDay2 EXTENDS E
 	
 	private DayParametricEnum(String strName) { //public nepodporuju enumy (ale voldemorta ano, zaujimave)
 		this.strName = strName;
-		//Enum //ukazat source
+	}
+	
+	public String getStrName() {
+		return strName;
 	}
 	
 	public String toString() {

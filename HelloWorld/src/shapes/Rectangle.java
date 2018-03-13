@@ -7,11 +7,11 @@ public class Rectangle extends Shape {
 	private int height;
 	
 	public Rectangle() {
-		width = 1;
-		height = 1;
+		this(1, 1);
 	}
 	
 	public Rectangle(int width, int height) {
+		super(0, 0);
 		this.width = width;
 		this.height = height;
 	}
@@ -35,7 +35,8 @@ public class Rectangle extends Shape {
 		
 		for (int h = 0; h < height; h++) {
 			for (int w = 0; w < width; w++) {
-				sb.format("%2s", super.color);
+				sb.format("%2s", Shape.DEFAULT_COLOR);
+//				Shape.x; --> sucast objektu!
 			}
 			sb.format("\n");
 		}

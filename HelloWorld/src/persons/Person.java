@@ -1,3 +1,4 @@
+package persons;
 /**
  * Trieda reprezentujuca osobu.
  * @author Michaela
@@ -12,6 +13,12 @@ public class Person {
 	 */
 	private int age;
 	
+	public Person(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+
 	/**
 	 * Getter pre meno osoby
 	 * @return meno osoby v stringovom formate
@@ -39,7 +46,7 @@ public class Person {
 	 * @param age vek, ktory sa ma nastavit (musi byt medzi 0 a 150)
 	 * @return true, ak bol vek spravny, false inac
 	 */
-	public boolean setAge(int age) {
+	public final boolean setAge(int age) {
 		if(isValidAge(age)) {
 			this.age = age;
 			return true;
@@ -50,5 +57,10 @@ public class Person {
 
 	private boolean isValidAge(int ageNew) {
 		return ageNew >= 0 && ageNew <= 150;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name + ", " + this.age;
 	}
 }

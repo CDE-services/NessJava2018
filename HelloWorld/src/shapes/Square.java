@@ -5,6 +5,11 @@ public class Square extends Rectangle {
 		super();
 	}
 	
+//	public Square(char color) {
+//		this(5);
+//		super.color = color;
+//	}
+
 	public Square(int size) {
 		super(size, size);
 	}

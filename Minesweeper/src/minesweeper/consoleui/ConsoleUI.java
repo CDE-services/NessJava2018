@@ -33,17 +33,26 @@ public class ConsoleUI {
      */
     public void newGameStarted(Field field) {
         this.field = field;
-        do {
+        System.out.printf("Ahoj %s ! %n", 
+        				  System.getProperty("user.name"));
+        System.out.printf("Som stalker, viem aky mas system: %s verzie %s %n%n", 
+						  System.getProperty("os.name"),
+						  System.getProperty("os.version"));
+//        do {
             update();
-            processInput();
-            throw new UnsupportedOperationException("Resolve the game state - winning or loosing condition.");
-        } while(true);
+//            processInput();
+            this.field.openTile(0, 0);
+            update();
+//            throw new UnsupportedOperationException("Resolve the game state - winning or loosing condition.");
+//        } while(true);
     }
     
     /**
      * Updates user interface - prints the field.
      */
     public void update() {
+    	System.out.printf("Hral si zatial %d sekund.%n%n", 
+    					  field.getPlayingSeconds());
         System.out.println(field);
     }
     
@@ -52,6 +61,6 @@ public class ConsoleUI {
      * Reads line from console and does the action on a playing field according to input string.
      */
     private void processInput() {
-        throw new UnsupportedOperationException("Method processInput not yet implemented");
+        System.out.println("akoze process input");
     }
 }
