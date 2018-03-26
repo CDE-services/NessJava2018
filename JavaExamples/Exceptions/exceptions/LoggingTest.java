@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class LoggingTest {
      public static void main(String[] args) throws Exception {
-          Handler handler = new FileHandler("c:/error.log");
+          Handler handler = new FileHandler("error.log");
           Logger.getLogger("").addHandler(handler);
 
           String s = "1234s";
@@ -17,7 +17,7 @@ public class LoggingTest {
           } catch (NumberFormatException e) {
                Logger.getLogger(LoggingTest.class.getName()).
                        log(Level.SEVERE,
-                       "Cannot parse number: " + s);
+                       "Cannot parse number: " + s + e.getStackTrace());
           }
      }
 }

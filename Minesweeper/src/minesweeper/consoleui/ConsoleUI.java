@@ -20,10 +20,10 @@ public class ConsoleUI {
      * @return line as a string
      */
     private String readLine() {
-        try {
+    	try {
             return input.readLine();
         } catch (IOException e) {
-            return null;
+        	return null;
         }
     }
     
@@ -40,9 +40,9 @@ public class ConsoleUI {
 						  System.getProperty("os.version"));
 //        do {
             update();
-//            processInput();
-            this.field.openTile(0, 0);
-            update();
+            processInput();
+//            this.field.openTile(0, 0);
+//            update();
 //            throw new UnsupportedOperationException("Resolve the game state - winning or loosing condition.");
 //        } while(true);
     }

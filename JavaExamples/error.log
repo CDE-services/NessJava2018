@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="windows-1250" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-03-26T07:51:24.572837700Z</date>
+  <millis>1522050684572</millis>
+  <nanos>837700</nanos>
+  <sequence>0</sequence>
+  <logger>exceptions.LoggingTest</logger>
+  <level>SEVERE</level>
+  <class>exceptions.LoggingTest</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Cannot parse number: 1234s[Ljava.lang.StackTraceElement;@174d20a</message>
+</record>
+</log>

@@ -7,7 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RC {
-    private static Pattern RC_PATTERN = Pattern.compile("(\\d{2})[\\. -]?(\\d{2})[\\. -]?(\\d{2})[\\./-]?(\\d{3,4})");
+    private static Pattern RC_PATTERN = 
+    		Pattern.compile("(\\d{2})[\\. -]?(\\d{2})[\\. -]?(\\d{2})[\\./-]?(\\d{3,4})");
     
     private final String value;
     
